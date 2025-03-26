@@ -1,0 +1,178 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=area-simple&code=MYewdgzgLgBAtgUwCYEtQIjAvDA2gJgA4AGAOmIBoAWYq0gNgpgGZD7SB2J_ATgFZuARkGkBMDvTqEmVHh1I8mfHiOZNWhUUx6sG6iQwC6AKGOhIsYAEMANsACuNqwBEUAMwQAnBGGsBRMChvAFlkNBAMbBgACgBKbAA-eDD0CFI4KwAHaOjEVGsQJhR4rCSAb2MYGHcYlGwsHGJ47yh7TzAAbkqYbpa2sBi8tCsQGABaZPyIiFw6icFDWOMAX1iu0xBMqBRwKIqqg5gANxQIe1tgrIAuGH3Dg7gUMBuxwWJ3im77-CsADxu3h8vvdUIhIDtnjBBJ9vlUQJ4UD4oDcAORHLzbaw2FEw2EIgDmAAtkeN8JRgYcoJtUcAkV4cRSDlAEL8SbgUQBBKAAS6h72IcDgOJgnJ540BAqFhlx3yxDicACMbAgbkF7AgZfcngAlKxgfEq26Mw6gGzwm7sgDEbnwwGYgiswpRlvwVAVHBtKJMsJgy0Zy01vw5v1ONzulIAnplDSjrMz8fCIwzvkgrFArBayYI1DAs1RuMRBGIs4xc4WuGXBNJK4oy2SC_hoXX8A3mN7fbiqSAbNtMmHgUEUPiDZ5UX9TsmDpkQBAUNtwDc3PZfPOBtEtvFwwc-u08FtcMRpSK3gBSL1dQ5-qoB7rbKDK_uHZVuEmxumeSdVZms1EAFQAt60ZowKmSCjAAB8cpznDYKAAF5WAA5wAxyANxnAa0CoTAABEABqVgIkh2GpjAwCEvYRxWDAVgOHAjhWKR06eDRYCjNEeY0XWzDxBMABiVhwT4pEAMKEWAVgAF8KtREy_lkXggAAh-MMAAAoAEIot0N5fiA3YKiA_xGocHhpm0hpblUqbpgAWvpcCPrCEbBqcACSYBICyqJsWACDad8un3N40DwpZQWHBAVjohyEBuRkBphleBzJUFLkhhATlflGMZUTY6qfjAhnLqmngRgA4tceCUMe7xnu2QU2VY9kgI5eDAlZMBQDlqJPLOXmFVU0CESS5LAhFJn3MNnijZqyXSt0EBeIimXtYcnUSYgqICQA1ggMDOGmjqatl0aorBfmDTAEARnAhk2D54D-Sd11WHAmQXfi51QFACpXXOCBwAAyt1D6TbK3bmiKnj4gqHF8GIHA1dmgixAF9wTVUhEIFYIMRmDnVVKaUN-QA7jACDkSNaT4p4WSEmgpAADJPDjnjlXTqBItENW80wTa4MaByE_cIBuG4S2zULJqQ6O0Ow_DYhFtW9CEGj0sdhrIuHGLEsICS0Ia0TsuojDcP4AjTBI_z9rqz615C4s_ovU1NxygxrgeN4vhWAEQQIKEUwYHE43dCYywdEAA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+
+    <style>
+      main {
+        width: 100%;
+        height: 100vh;
+
+        background-color: #F9FBE7;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      #container {
+        max-width: 1140px;
+        height: 700px !important;
+        margin: 0 auto;
+        padding: 10% 2rem;
+      }
+  </style>
+</head>
+<body style="height: 100%; margin: 0">
+  <main>
+  <div id="container" style="height: 100%"></div>
+</main>
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    const medicoes = [280.0,404.6, 386.7, 295, 211.5, 764.8, 497.9, 591.3, 388.5, 938.6, 376.6]
+
+const calculaDiferencaEntreMedicoes = () => medicoes.map((medicao, i) => {
+  if (i === 0) return;
+  
+  return (medicao - medicoes[i - 1])
+});
+
+
+option = {
+      visualMap: {
+        min: -1000,
+        max: 1000,
+        dimension: 1,
+        orient: 'vertical',
+        right: -20,
+        top: 'center',
+        text: ['Até 1000mm', 'Até -1000mm'],
+        calculable: true,
+        inRange: {
+          color: ['#f2c31a', '#24b7f2']
+        }
+      },
+    xAxis: {
+      type: 'category',
+      data: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
+  },
+  tooltip: {
+    trigger: 'axis',
+    position: function (pt) {
+      return [pt[0], '10%'];
+    }
+  },
+  title: {
+    left: 'center',
+    text: 'Título dado à visualização: sugestão "Variação da chuva acumulada por ano (2014 a 2023)',
+    subtext: 'Fazenda Carnaúba - Taperoá - PB',
+    textStyle: {
+      color: '#616161',
+      fontWeight: 'bolder',
+      fontSize: 26,
+      lineHeight: 30,
+    },
+    subtextStyle: {
+      color: '#616161',
+      fontWeight: 'bolder',
+      fontSize: 26,
+      verticalAlign: 'top',
+      lineHeight: 30,
+    },
+  },
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  yAxis: {
+    type: 'value',
+    boundaryGap: [0, '100%']
+  },
+  grid: {
+    top: '20%',  // Aumenta o espaço no topo do gráfico
+    left: '5%',
+    right: '5%',
+    bottom: '10%'
+},
+  dataZoom: [
+    {
+      type: 'inside',
+      start: 0,
+
+    },
+    {
+      start: 0,
+    }
+  ],
+  series: [
+    {
+      name: 'Fake Data',
+      type: 'line',
+      symbol: 'none',
+      sampling: 'lttb',
+      itemStyle: {
+        color: 'rgb(255, 70, 131)'
+      },
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(255, 158, 68)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(255, 70, 131)'
+          }
+        ])
+      },
+      data: calculaDiferencaEntreMedicoes()
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

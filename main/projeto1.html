@@ -6,11 +6,42 @@
 <html lang="en" style="height: 100%">
 <head>
   <meta charset="utf-8">
+  <style>
+    main {
+      width: 100%;
+      height: 100vh;
+
+      background-color: #FFFDE7;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    #container {
+      max-width: 1140px;
+      height: 700px !important;
+      margin: 0 auto;
+      padding: 10% 2rem;
+    }
+  </style>
 </head>
 <body style="height: 100%; margin: 0">
-  <div id="container" style="height: 100%"></div>
+   <style>
+    main {
+      width: 100%;
+      height: 100vh;
 
-  
+      background-color: #FFFDE7;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    #container {
+      max-width: 1140px;
+      height: 700px !important;
+      margin: 0 auto;
+      padding: 10% 2rem;
+    }
+  </style>
   <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
   
   <!-- Uncomment this line if you want to dataTool extension
@@ -45,14 +76,40 @@
 
     option = {
       title: {
-        text: 'Volume de chuva acumulada por ano (2014 a 2023) - Fazenda Carnaúba - Taperoá - PB',
-        left: 'center'
+        text: 'Volume de chuva acumulada por ano (2014 a 2023)',
+        subtext: 'Fazenda Carnaúba - Taperoá - PB',
+        left: 'center',
+        textStyle: {
+          color: '#616161',
+          fontWeight: 'bolder',
+          fontSize: 26,
+          lineHeight: 30,
+        },
+        subtextStyle: {
+          color: '#616161',
+          fontWeight: 'bolder',
+          fontSize: 26,
+          verticalAlign: 'top',
+          lineHeight: 30,
+        },
+      },
+      textStyle: {
+        fontSize: 30,
+      },
+      endLabel: {
+        show: true,
       },
     xAxis: {
       type: 'category',
       boundaryGap: false,
       data: [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
     },
+    grid: {
+      top: '20%',  // Aumenta o espaço no topo do gráfico
+      left: '5%',
+      right: '5%',
+      bottom: '10%'
+  },
   dataZoom: [
     {
       type: 'slider',
@@ -70,7 +127,13 @@
     }
   ],
     tooltip: {
-    trigger: 'axis'
+    trigger: 'axis',
+    axisPointer: {
+      label: {
+        show: true,
+      }
+    }
+
   },
   yAxis: {
     type: 'value'
